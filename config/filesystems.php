@@ -47,6 +47,11 @@ return [
             'driver' => 'local',
             'root' => storage_path('app'),
         ],
+        
+        'data' => [
+            'driver' => 'local',
+            'root' => storage_path('app')."/".env('DATA_DIR'),
+        ],
 
         'public' => [
             'driver' => 'local',
