@@ -23,9 +23,6 @@ jobs:
       #- image: circleci/buildpack-deps:stretch
 
     steps:
-      - add_ssh_keys:
-          fingerprints:
-            - "5b:1f:7c:fe:40:93:34:4b:88:ff:86:a1:83:a4:68:2f"
       
       - checkout
 
@@ -33,6 +30,7 @@ jobs:
           name: Get Submodule
           command: |
             ls -l
+            ls -l hyp2000/
             sudo apt-get update 
             sudo apt-get install -yqq git curl
             git submodule update --init --recursive
