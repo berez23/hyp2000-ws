@@ -53,7 +53,7 @@ jobs:
             chmod +x /usr/local/bin/docker-compose          
       - run:
           name: Start containers
-          commnad: |
+          command: |
             set -x
             docker-compose --version
             cd Docker
