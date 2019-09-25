@@ -35,7 +35,6 @@ jobs:
           name: Install Docker Binary
           command: |
             apt-get update -yqq
-            #apt-get remove -yqq docker docker-engine docker.io containerd runc
             apt-get install -yqq apt-transport-https ca-certificates curl gnupg2 software-properties-common
             curl -fsSL https://download.docker.com/linux/debian/gpg | apt-key add -
             apt-key fingerprint 0EBFCD88
@@ -66,6 +65,9 @@ jobs:
           command: |
             pwd
             ls -al
+            ls -al Docker
+            ls -al hyp2000
+            pwd
             cd Docker
             docker-compose exec -T php-fpm sh -c "if docker image ls | grep -q hyp2000 ; then echo \" nothing to do\"; else cd hyp2000 && docker build --tag hyp2000:ewdevgit -f DockerfileEwDevGit .; fi"
       - run:
