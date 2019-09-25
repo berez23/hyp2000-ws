@@ -36,6 +36,7 @@ jobs:
             cd pippo
             git clone git@github.com:INGV/hyp2000.git
             ls -l
+            ls -l hyp2000
             cd ..
             ls -l hyp2000/
             git submodule init
