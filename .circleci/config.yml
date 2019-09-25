@@ -26,10 +26,15 @@ jobs:
       
       - setup_remote_docker
       
+      
       - run:
+          name: Install Packages
           command: |
             apt-get update -yqq 
             apt-get install -yqq git curl
+      - run:
+          name: Install Docker Binary
+          command: |
             apt-get update -yqq
             apt-get install -yqq apt-transport-https ca-certificates curl gnupg2 software-properties-common
             curl -fsSL https://download.docker.com/linux/debian/gpg | apt-key add -
@@ -37,15 +42,35 @@ jobs:
             add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/debian $(lsb_release -cs) stable"
             apt-get -yqq update
             apt-get -yqq install docker-ce docker-ce-cli containerd.io           
-            git submodule update --init --recursive
+      - run: 
+          name: Get Submodule
+          command: |
+             git submodule update --init --recursive
+      - run: 
+          name: Install Docker Compose
+          command: |
             curl -L "https://github.com/docker/compose/releases/download/1.24.1/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
             chmod +x /usr/local/bin/docker-compose          
+      - run:
+          name: Start Docker Containers
+          command: |
             cd Docker
             cp -v env-example .env
             COMPOSE_HTTP_TIMEOUT=200 docker-compose up -d nginx redis workspace docker-in-docker
-            docker-compose exec -T php-fpm sh -c "ls -l"
+      - run:
+          name: Check Docker started
+          command: |
             docker ps -a 
+            docker inspect ed51d91e8262 | grep www
+      - run:
+          name: Build "hyp2000" Docker Image
+          command: |
             cd Docker
             cat .env
             docker-compose exec -T php-fpm sh -c "docker --version"
             docker-compose exec -T php-fpm sh -c "if docker image ls | grep -q hyp2000 ; then echo \" nothing to do\"; else cd hyp2000 && docker build --tag hyp2000:ewdevgit -f DockerfileEwDevGit .; fi"
+      - run:
+          name: Test
+          command: |
+            pwd
+            phpunit -v
