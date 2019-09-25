@@ -58,6 +58,10 @@ jobs:
             cp -v env-example .env
             COMPOSE_HTTP_TIMEOUT=200 docker-compose up -d nginx redis workspace docker-in-docker
       - run:
+          name: Check Docker started
+          command: |
+            docker ps -a
+      - run:
           name: Build "hyp2000" Docker Image
           command: |
             cd Docker 
