@@ -60,7 +60,7 @@ jobs:
       - run:
           name: Check Docker started
           command: |
-            docker ps -a
+            docker ps -a 
       - run:
           name: Build "hyp2000" Docker Image
           command: |
