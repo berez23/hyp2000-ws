@@ -28,7 +28,7 @@ jobs:
           name: Get Submodule
           command: |
             ls -l
-            git submodule update --init --recursive
+            #git submodule update --init --recursive
       - run:
           name: Start Docker Containers
           command: |
