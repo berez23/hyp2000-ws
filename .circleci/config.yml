@@ -56,6 +56,8 @@ jobs:
             cd Docker
             cp -v env-example .env
             COMPOSE_HTTP_TIMEOUT=200 docker-compose up -d nginx redis workspace docker-in-docker
+            docker-compose exec -T php-fpm sh -c "ls -l"
+            cat .env
       - run:
           name: Check Docker started
           command: |
@@ -64,11 +66,7 @@ jobs:
           name: Build "hyp2000" Docker Image
           command: |
             cd Docker
-            docker-compose ps
-            docker-compose exec -T php-fpm sh -c "pwd"
-            docker-compose exec -T php-fpm sh -c "ls -l"
-            docker-compose exec -T php-fpm sh -c "ls -l /var/www"
-            docker-compose exec -T php-fpm sh -c "ls -l /var/www/Docker"
+            cat .env
             docker-compose exec -T php-fpm sh -c "docker --version"
             docker-compose exec -T php-fpm sh -c "if docker image ls | grep -q hyp2000 ; then echo \" nothing to do\"; else cd hyp2000 && docker build --tag hyp2000:ewdevgit -f DockerfileEwDevGit .; fi"
       - run:
