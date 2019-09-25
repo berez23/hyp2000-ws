@@ -60,9 +60,12 @@ jobs:
       - run:
           name: Check Docker started
           command: |
+            pwd
+            ls -l
             docker ps -a 
             docker inspect $( docker ps | grep php-fpm | awk '{print $1}' ) | grep www
             docker exec $( docker ps | grep php-fpm | awk '{print $1}' ) ls -l
+            docker exec $( docker ps | grep workspace | awk '{print $1}' ) ls -l
       - run:
           name: Build "hyp2000" Docker Image
           command: |
