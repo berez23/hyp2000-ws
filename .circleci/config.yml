@@ -62,11 +62,11 @@ jobs:
           command: |
             docker ps -a 
             docker inspect $( docker ps | grep php-fpm | awk '{print $1}' ) | grep www
+            docker exec $( docker ps | grep php-fpm | awk '{print $1}' ) ls -l
       - run:
           name: Build "hyp2000" Docker Image
           command: |
             cd Docker
-            cat .env
             docker-compose exec -T php-fpm sh -c "docker --version"
             docker-compose exec -T php-fpm sh -c "if docker image ls | grep -q hyp2000 ; then echo \" nothing to do\"; else cd hyp2000 && docker build --tag hyp2000:ewdevgit -f DockerfileEwDevGit .; fi"
       - run:
