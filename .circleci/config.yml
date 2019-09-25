@@ -42,22 +42,3 @@ jobs:
             add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/debian $(lsb_release -cs) stable"
             apt-get update
             apt-get install docker-ce docker-ce-cli containerd.io
-      - run: docker --version
-      - run: docker run hello-world            
-      - run: git submodule update --init --recursive
-      - run: 
-          name: Install Docker Compose
-          command: |
-            set -x
-            curl -L "https://github.com/docker/compose/releases/download/1.24.1/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
-            chmod +x /usr/local/bin/docker-compose          
-      - run:
-          name: Start containers
-          commnad: |
-            docker-compose --version
-            cd Docker && COMPOSE_HTTP_TIMEOUT=200 docker-compose up -d nginx redis workspace docker-in-docker
-      #- run: sudo curl -L "https://github.com/docker/compose/releases/download/1.24.1/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
-      #- run: sudo chmod +x /usr/local/bin/docker-compose
-      #- run: docker run hello-world
-      #- run: docker-compose --version
-      #- run: cd Docker && COMPOSE_HTTP_TIMEOUT=200 docker-compose up -d nginx redis workspace docker-in-docker
