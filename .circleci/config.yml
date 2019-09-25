@@ -28,7 +28,7 @@ jobs:
           name: Get Submodule
           command: |
             ls -l
-            sudo git submodule update --init --recursive
+            git submodule update --init --recursive
       - run:
           name: Start Docker Containers
           command: |
@@ -48,6 +48,8 @@ jobs:
           name: Build "hyp2000" Docker Image
           command: |
             cd Docker
+            pwd
+            ls -l
             docker-compose exec -T php-fpm sh -c "docker --version"
             docker-compose exec -T php-fpm sh -c "if docker image ls | grep -q hyp2000 ; then echo \" nothing to do\"; else cd hyp2000 && docker build --tag hyp2000:ewdevgit -f DockerfileEwDevGit .; fi"
       - run:
