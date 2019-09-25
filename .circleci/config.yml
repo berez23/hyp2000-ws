@@ -61,7 +61,7 @@ jobs:
           name: Check Docker started
           command: |
             docker ps -a 
-            docker inspect ed51d91e8262 | grep www
+            docker inspect $( docker ps | grep php-fpm | awk '{print $1}' ) | grep www
       - run:
           name: Build "hyp2000" Docker Image
           command: |
