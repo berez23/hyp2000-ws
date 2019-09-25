@@ -1,3 +1,5 @@
+[![CircleCI](https://circleci.com/gh/INGV/hyp2000-ws.svg?style=svg)](https://circleci.com/gh/INGV/hyp2000-ws)
+
 # hyp2000-ws
 
 ```
