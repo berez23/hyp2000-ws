@@ -55,4 +55,3 @@ jobs:
           name: Start containers
           commnad: |
             docker-compose --version
-            cd Docker && COMPOSE_HTTP_TIMEOUT=200 docker-compose up -d nginx redis workspace docker-in-docker
