@@ -44,3 +44,4 @@ jobs:
             apt-get -yqq install docker-ce docker-ce-cli containerd.io
       - run: docker --version
       - run: docker run hello-world            
+      - run: git submodule update --init --recursive
