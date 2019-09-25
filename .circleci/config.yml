@@ -30,6 +30,7 @@ jobs:
       - run: apt-get install -yqq git curl
       - run: git submodule update --init --recursive
       - run: docker --version
+      - run: docker run hello-world
       - run: 
           name: Install Docker Compose
           command: |
