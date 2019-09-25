@@ -9,7 +9,7 @@ jobs:
     docker:
       # Specify the version you desire here
       ####- image: circleci/php:7.1-node-browsers
-      - image: debian:stretch
+      #- image: debian:stretch
 
       # Specify service dependencies here if necessary
       # CircleCI maintains a library of pre-built images
@@ -19,7 +19,7 @@ jobs:
       # - image: circleci/mysql:5.7-ram
       #
       # - image: redis:2.8.19
-      - image: docker:stable-dind
+      - image: circleci/buildpack-deps:stable-dind
 
     steps:
       - checkout
