@@ -28,4 +28,7 @@ jobs:
       - run: git submodule update --init --recursive
       - run: cd Docker
       - run: apt-cache search docker-compose
+      - run: curl -L "https://github.com/docker/compose/releases/download/1.24.1/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+      - run: chmod +x /usr/local/bin/docker-compose
+      - run: docker-compose --version
       - run: COMPOSE_HTTP_TIMEOUT=200 docker-compose up -d nginx redis workspace docker-in-docker
