@@ -14,7 +14,7 @@ APP_CODE_PATH_CONTAINER=/var/www
 APP_CODE_CONTAINER_FLAG=:cached
 
 # Choose storage path on your machine. For all storage systems
-DATA_PATH_HOST=~/.laradock/data
+DATA_PATH_HOST=~/.hyp2000-ws/data
 
 ### Drivers ################################################
 
@@ -33,7 +33,7 @@ COMPOSE_FILE=docker-compose.yml
 COMPOSE_PATH_SEPARATOR=:
 
 # Define the prefix of container names. This is useful if you have multiple projects that use laradock to have seperate containers per project.
-COMPOSE_PROJECT_NAME=laradock-dante6-develop
+COMPOSE_PROJECT_NAME=hyp2000-ws-master
 
 ### PHP Version ###########################################
 
@@ -142,7 +142,7 @@ WORKSPACE_PUID=1000
 WORKSPACE_PGID=1000
 WORKSPACE_CHROME_DRIVER_VERSION=2.42
 WORKSPACE_TIMEZONE=UTC
-WORKSPACE_SSH_PORT=2225
+WORKSPACE_SSH_PORT=2226
 WORKSPACE_INSTALL_FFMPEG=false
 WORKSPACE_INSTALL_GNU_PARALLEL=false
 
@@ -195,22 +195,17 @@ PHP_FPM_ADDITIONAL_LOCALES="es_ES.UTF-8 fr_FR.UTF-8"
 
 ### NGINX #################################################
 
-NGINX_HOST_HTTP_PORT=8085
-NGINX_HOST_HTTPS_PORT=8445
+NGINX_HOST_HTTP_PORT=8086
+NGINX_HOST_HTTPS_PORT=8446
 NGINX_HOST_LOG_PATH=./logs/nginx/
 NGINX_SITES_PATH=./nginx/sites/
 NGINX_PHP_UPSTREAM_CONTAINER=php-fpm
 NGINX_PHP_UPSTREAM_PORT=9000
 NGINX_SSL_PATH=./nginx/ssl/
 
-### LARAVEL_HORIZON ################################################
-
-LARAVEL_HORIZON_INSTALL_SOCKETS=true
-LARAVEL_HORIZON_INSTALL_PHPREDIS=true
-
 ### REDIS #################################################
 
-REDIS_PORT=6385
+REDIS_PORT=6386
 
 ### BLACKFIRE #############################################
 
