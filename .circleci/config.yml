@@ -6,10 +6,10 @@
 version: 2
 jobs:
   build:
-    machine:
+    docker:
       # Specify the version you desire here
       ####- image: circleci/php:7.1-node-browsers
-      image: circleci/buildpack-deps:stretch 
+      - image: debian:stretch
 
       # Specify service dependencies here if necessary
       # CircleCI maintains a library of pre-built images
@@ -24,7 +24,7 @@ jobs:
     steps:
       - checkout
       
-      #- setup_remote_docker
+      - setup_remote_docker
       
       
       - run:
@@ -57,6 +57,7 @@ jobs:
             cd Docker
             cp -v env-example .env
             COMPOSE_HTTP_TIMEOUT=200 docker-compose up -d nginx redis workspace docker-in-docker
+            sleep 5
       - run:
           name: Check Docker started
           command: |
