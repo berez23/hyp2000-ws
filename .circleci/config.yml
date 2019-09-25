@@ -24,4 +24,6 @@ jobs:
       - checkout
 
       - run: ls -l
+      - run: apt-get update -yqq 
+      - run: apt-get install -yqq git
       - run: git submodule update --init --recursive
