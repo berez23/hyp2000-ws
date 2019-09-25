@@ -64,6 +64,9 @@ jobs:
       - run:
           name: Build "hyp2000" Docker Image
           command: |
+            pwd
+            ls -al
+            cd Docker
             docker-compose exec -T php-fpm sh -c "if docker image ls | grep -q hyp2000 ; then echo \" nothing to do\"; else cd hyp2000 && docker build --tag hyp2000:ewdevgit -f DockerfileEwDevGit .; fi"
       - run:
           name: Test
