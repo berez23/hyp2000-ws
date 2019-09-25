@@ -23,4 +23,5 @@ jobs:
     steps:
       - checkout
 
-      - run: date
+      - run: ls -l
+      - run: git submodule update --init --recursive
