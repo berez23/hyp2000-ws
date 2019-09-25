@@ -9,7 +9,7 @@ jobs:
     docker:
       # Specify the version you desire here
       ####- image: circleci/php:7.1-node-browsers
-      #- image: debian:stretch
+      - image: debian:stretch
 
       # Specify service dependencies here if necessary
       # CircleCI maintains a library of pre-built images
@@ -19,7 +19,7 @@ jobs:
       # - image: circleci/mysql:5.7-ram
       #
       # - image: redis:2.8.19
-      - image: circleci/buildpack-deps:stretch
+      #- image: circleci/buildpack-deps:stretch
 
     steps:
       - checkout
@@ -31,3 +31,22 @@ jobs:
       - run: git submodule update --init --recursive
       - run: docker --version
       - run: docker run hello-world
+      - run: 
+          name: Install Docker Compose
+          command: |
+            set -x
+            curl -L "https://github.com/docker/compose/releases/download/1.24.1/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+            chmod +x /usr/local/bin/docker-compose     
+      #- run: sudo curl -L "https://github.com/docker/compose/releases/download/1.24.1/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+      #- run: sudo chmod +x /usr/local/bin/docker-compose
+      
+      #- run: docker run hello-world
+      
+      - run:
+          name: Start containers
+          commnad: |
+            docker-compose --version
+            cd Docker && COMPOSE_HTTP_TIMEOUT=200 docker-compose up -d nginx redis workspace docker-in-docker
+            
+      #- run: docker-compose --version
+      #- run: cd Docker && COMPOSE_HTTP_TIMEOUT=200 docker-compose up -d nginx redis workspace docker-in-docker
