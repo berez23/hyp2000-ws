@@ -27,5 +27,5 @@ jobs:
       - run: apt-get install -yqq git
       - run: git submodule update --init --recursive
       - run: cd Docker
+      - run: apt-cache search docker-compose
       - run: COMPOSE_HTTP_TIMEOUT=200 docker-compose up -d nginx redis workspace docker-in-docker
-      - run: apr-cache search docker-compose
