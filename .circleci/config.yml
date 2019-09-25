@@ -9,7 +9,7 @@ jobs:
     machine:
       # Specify the version you desire here
       ####- image: circleci/php:7.1-node-browsers
-      image: circleci/buildpack-deps:stretch
+      image: circleci/buildpack-deps:stretch 
 
       # Specify service dependencies here if necessary
       # CircleCI maintains a library of pre-built images
