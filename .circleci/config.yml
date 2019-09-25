@@ -19,11 +19,13 @@ jobs:
       # - image: circleci/mysql:5.7-ram
       #
       # - image: redis:2.8.19
-      - image: circleci/buildpack-deps:stretch-dind
+      - image: circleci/buildpack-deps:stretch
 
     steps:
       - checkout
 
+      - setup_remote_docker
+      
       - run: apt-get update -yqq 
       - run: apt-get install -yqq git curl
       - run: git submodule update --init --recursive
