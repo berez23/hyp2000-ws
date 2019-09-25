@@ -9,7 +9,7 @@ jobs:
     machine:
       # Specify the version you desire here
       ####- image: circleci/php:7.1-node-browsers
-      image: circleci/classic:edge
+      image: ubuntu-1604:201903-01
 
       # Specify service dependencies here if necessary
       # CircleCI maintains a library of pre-built images
@@ -28,7 +28,9 @@ jobs:
           name: Get Submodule
           command: |
             ls -l
-            #git submodule update --init --recursive
+            sudo apt-get update -yqq 
+            sudo apt-get install -yqq git curl
+            git submodule update --init --recursive
       - run:
           name: Start Docker Containers
           command: |
