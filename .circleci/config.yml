@@ -55,4 +55,5 @@ jobs:
           command: |
             docker-compose --version
             cd Docker
+            cp -v env-example .env
             docker-compose up -d nginx redis workspace docker-in-docker
