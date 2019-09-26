@@ -1,0 +1,64 @@
+# PHP CircleCI 2.0 configuration file
+#
+# Check https://circleci.com/docs/2.0/language-php/ for more details
+#
+
+version: 2
+jobs:
+  build:
+    machine:
+      image: ubuntu-1604:201903-01
+    steps:
+      - checkout
+      - run: 
+          name: Get Submodule 
+          command: |
+            git submodule sync
+            git submodule update --init
+      - run:
+          name: Start Docker Containers
+          command: |
+            cd Docker
+            cp -v env-example .env
+            COMPOSE_HTTP_TIMEOUT=200 docker-compose up -d nginx redis workspace docker-in-docker
+      - run:
+          name: Check Docker started
+          command: |
+            pwd
+            ls -l
+            docker ps -a 
+            cd Docker
+            ls -l
+            docker-compose ps
+      - run:
+          name: Build "hyp2000" Docker Image
+          command: |
+            pwd
+            ls -l
+            cd Docker
+            ls -l
+            docker-compose exec -T php-fpm sh -c "docker --version"
+            docker-compose exec -T php-fpm sh -c "if docker image ls | grep -q hyp2000 ; then echo \" nothing to do\"; else cd hyp2000 && docker build --tag hyp2000:ewdevgit -f DockerfileEwDevGit .; fi"
+      - run:
+          name: Set Laravel package
+          command: |
+            cd Docker
+            docker-compose exec -T workspace php artisan key:generate
+            docker-compose exec -T workspace composer install
+      - run:
+          name: Test
+          command: |
+            cd Docker
+            docker-compose exec -T workspace sh -c "pwd && ls -l"
+            docker-compose exec -T workspace sh -c "vendor/bin/phpunit -v"
+workflows:
+  version: 2
+  build_and_test:
+    jobs:
+      - build
+      - deploy:
+          requires:
+            - build
+          filters:
+            branches:
+              only: master
