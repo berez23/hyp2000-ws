@@ -24,7 +24,7 @@ jobs:
     steps:
       - checkout
       - run: 
-          name: Get Submodule
+          name: Get Submodule 
           command: |
             git submodule sync
             git submodule update --init
