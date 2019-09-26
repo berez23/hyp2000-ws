@@ -10,6 +10,8 @@ jobs:
       # Specify the version you desire here
       ####- image: circleci/php:7.1-node-browsers
       image: ubuntu-1604:201903-01
+      services:
+        - docker
       #docker_layer_caching: false
 
       # Specify service dependencies here if necessary
