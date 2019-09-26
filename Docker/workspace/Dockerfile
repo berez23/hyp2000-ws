@@ -1106,6 +1106,12 @@ RUN if [ ${INSTALL_GNU_PARALLEL} = true ]; then \
 
 RUN set -xe; php -v | head -n 1 | grep -q "PHP ${LARADOCK_PHP_VERSION}."
 
+###########################################################################
+# Install docker client:
+###########################################################################
+RUN curl -sS https://download.docker.com/linux/static/stable/x86_64/docker-19.03.2.tgz -o /tmp/docker.tar.gz && tar -xzf /tmp/docker.tar.gz -C /tmp/ && cp /tmp/docker/docker* /usr/local/bin && chmod +x /usr/local/bin/docker*
+
+
 #
 #--------------------------------------------------------------------------
 # Final Touch
