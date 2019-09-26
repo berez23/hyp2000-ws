@@ -31,7 +31,8 @@ jobs:
       - run: 
           name: Get Submodule
           command: |
-             git submodule update --init --recursive
+            git submodule sync
+            git submodule update --init
       - run: 
           name: Install Docker Compose
           command: |
@@ -43,7 +44,6 @@ jobs:
             cd Docker
             cp -v env-example .env
             COMPOSE_HTTP_TIMEOUT=200 docker-compose up -d nginx redis workspace docker-in-docker
-            sleep 5
       - run:
           name: Check Docker started
           command: |
