@@ -43,9 +43,11 @@ jobs:
       - run:
           name: Test
           command: |
+            date
             cd Docker
-            docker-compose exec -T workspace sh -c "pwd && ls -l"
             docker-compose exec -T workspace sh -c "vendor/bin/phpunit -v"
+            docker-compose exec -T workspace sh -c "cat storage/logs/*.log"
+            date
 workflows:
   version: 2
   build_and_test:
