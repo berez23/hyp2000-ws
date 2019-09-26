@@ -54,7 +54,7 @@ jobs:
       - run:
           name: Test
           command: |
-            pwd
+            cd Docker
             docker-compose exec -T workspace sh -c "phpunit -v"
 workflows:
   version: 2
