@@ -31,6 +31,7 @@ jobs:
       - run: 
           name: Get Submodule
           command: |
+            ssh-keyscan -H github.com >> ~/.ssh/known_hosts
             git submodule sync
             git submodule update --init
       - run: 
