@@ -23,14 +23,11 @@ jobs:
       #- image: circleci/buildpack-deps:stretch
     steps:
       - checkout
-      - run: git submodule sync
-      - run: ls -l 
-      - run: ls -l hyp2000
-      - run: git submodule update --init
       - run: 
           name: Get Submodule
           command: |
-            git submodule update --init --recursive
+            git submodule sync
+            git submodule update --init
       - run:
           name: Start Docker Containers
           command: |
