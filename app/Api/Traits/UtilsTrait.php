@@ -27,5 +27,25 @@ trait UtilsTrait {
         }
 
         \Log::debug("END - ".__CLASS__.' -> '.__FUNCTION__);
-    } 
+    }
+    
+    public function getArrayStructure($var) {
+        $ret = null;
+        if(is_array($var)) {
+            foreach ($var as $k=>$v) {
+                if (is_array($var[$k])) {
+                    if(is_null($ret)){
+                        $ret = array();
+                    }
+                    $ret[$k] = $this->getArrayStructure($v);
+                } else {
+                    $ret[] = $k;
+                }
+            }
+        } else {
+            // Only if the first time is not an array.
+            $ret = $var;
+        }
+        return $ret;
+    }  
 }
