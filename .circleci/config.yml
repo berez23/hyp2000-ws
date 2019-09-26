@@ -25,6 +25,12 @@ jobs:
       - checkout
       - run: git submodule sync
       - run: git submodule update --init
+      - run: ls -l 
+      - run: ls -l hyp2000
+      - run: 
+          name: Get Submodule
+          command: |
+            git submodule update --init --recursive
       - run:
           name: Start Docker Containers
           command: |
