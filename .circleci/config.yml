@@ -24,9 +24,9 @@ jobs:
     steps:
       - checkout
       - run: git submodule sync
-      - run: git submodule update --init
       - run: ls -l 
       - run: ls -l hyp2000
+      - run: git submodule update --init
       - run: 
           name: Get Submodule
           command: |
