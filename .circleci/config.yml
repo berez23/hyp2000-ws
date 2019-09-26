@@ -24,29 +24,22 @@ jobs:
       - run:
           name: Check Docker started
           command: |
-            pwd
-            ls -l
             docker ps -a 
             cd Docker
-            ls -l
             docker-compose ps
       - run:
           name: Build "hyp2000" Docker Image
           command: |
-            pwd
-            ls -l
+            sleep 2
             cd Docker
-            ls -l
-            docker-compose exec -T php-fpm sh -c "docker --version"
             docker-compose exec -T php-fpm sh -c "if docker image ls | grep -q hyp2000 ; then echo \" nothing to do\"; else cd hyp2000 && docker build --tag hyp2000:ewdevgit -f DockerfileEwDevGit .; fi"
       - run:
           name: Set Laravel package
           command: |
             cd Docker
-            docker-compose exec -T workspace ls -l
-            docker-compose exec -T workspace bash -c "php artisan key:generate"
-            docker-compose exec -T workspace php artisan key:generate
             docker-compose exec -T workspace composer install
+            docker-compose exec -T workspace cp -v .env.example .env
+            docker-compose exec -T workspace php artisan key:generate            
       - run:
           name: Test
           command: |
