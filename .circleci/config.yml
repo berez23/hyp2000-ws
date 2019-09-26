@@ -40,9 +40,10 @@ jobs:
             docker-compose exec -T php-fpm sh -c "docker --version"
             docker-compose exec -T php-fpm sh -c "if docker image ls | grep -q hyp2000 ; then echo \" nothing to do\"; else cd hyp2000 && docker build --tag hyp2000:ewdevgit -f DockerfileEwDevGit .; fi"
       - run:
-          name: Run "composer install"
+          name: Set Laravel package
           command: |
             cd Docker
+            docker-compose exec -T workspace php artisan key:generate
             docker-compose exec -T workspace composer install
       - run:
           name: Test
