@@ -23,25 +23,34 @@ jobs:
             cd Docker
             docker-compose ps
       - run:
-          name: Build "hyp2000" Docker Image
+          name: Build "hyp2000" Docker Image (into "php-fpm" container)
           command: |
             sleep 2
             cd Docker
             docker-compose exec -T php-fpm sh -c "if docker image ls | grep -q hyp2000 ; then echo \" nothing to do\"; else cd hyp2000 && docker build --tag hyp2000:ewdevgit -f DockerfileEwDevGit .; fi"
+      - run:
+          name: Build "hyp2000" Docker Image (into "workspace" container)
+          command: |
+            # !!! ATTENTION !!!
+            # These lines below are used only to run docker 'hyp2000' container via 'CircleCI' where (i do not know why) the the 'hyp2000' is run by 'workspace' container.
+            sleep 2
+            cd Docker
+            docker-compose exec -T workspace sh -c 'curl -sS https://download.docker.com/linux/static/stable/x86_64/docker-19.03.2.tgz -o /tmp/docker.tar.gz && tar -xzf /tmp/docker.tar.gz -C /tmp/ && cp /tmp/docker/docker* /usr/local/bin && chmod +x /usr/local/bin/docker*'
+            docker-compose exec -T workspace sh -c "if docker image ls | grep -q hyp2000 ; then echo \" nothing to do\"; else cd hyp2000 && docker build --tag hyp2000:ewdevgit -f DockerfileEwDevGit .; fi"            
       - run:
           name: Set Laravel package
           command: |
             cd Docker
             docker-compose exec -T workspace composer install
             docker-compose exec -T workspace cp -v .env.example .env
-            docker-compose exec -T workspace php artisan key:generate            
+            docker-compose exec -T workspace php artisan key:generate
       - run:
           name: Test
           command: |
             date
             cd Docker
-            docker-compose exec -T workspace sh -c "vendor/bin/phpunit -v"
-            docker-compose exec -T workspace sh -c "cat storage/logs/*.log"
+            docker-compose exec -T workspace bash -c "vendor/bin/phpunit -v"
+            docker-compose exec -T workspace bash -c "cat storage/logs/*.log"
             date
 workflows:
   version: 2
