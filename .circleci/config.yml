@@ -32,7 +32,7 @@ jobs:
           name: Build "hyp2000" Docker Image (into "workspace" container)
           command: |
             # !!! ATTENTION !!!
-            # These lines below are used only to run docker 'hyp2000' container via 'CircleCI' where (i do not know why) the the 'hyp2000' is run by 'workspace' container.
+            # This line below is used only to run docker 'hyp2000' container via 'CircleCI' and 'PHPUnit'; I do no why but the 'hyp2000' is run by 'workspace' container instead og 'php-fpm' container
             sleep 2
             cd Docker
             docker-compose exec -T workspace sh -c 'curl -sS https://download.docker.com/linux/static/stable/x86_64/docker-19.03.2.tgz -o /tmp/docker.tar.gz && tar -xzf /tmp/docker.tar.gz -C /tmp/ && cp /tmp/docker/docker* /usr/local/bin && chmod +x /usr/local/bin/docker*'
