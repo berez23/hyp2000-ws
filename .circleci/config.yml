@@ -7,20 +7,8 @@ version: 2
 jobs:
   build:
     machine:
-      # Specify the version you desire here
-      ####- image: circleci/php:7.1-node-browsers
       image: ubuntu-1604:201903-01
       docker_layer_caching: true
-
-      # Specify service dependencies here if necessary
-      # CircleCI maintains a library of pre-built images
-      # documented at https://circleci.com/docs/2.0/circleci-images/
-      # Using the RAM variation mitigates I/O contention
-      # for database intensive operations.
-      # - image: circleci/mysql:5.7-ram
-      #
-      # - image: redis:2.8.19
-      #- image: circleci/buildpack-deps:stretch
     steps:
       - checkout
       - run: 
@@ -52,6 +40,11 @@ jobs:
             ls -l
             docker-compose exec -T php-fpm sh -c "docker --version"
             docker-compose exec -T php-fpm sh -c "if docker image ls | grep -q hyp2000 ; then echo \" nothing to do\"; else cd hyp2000 && docker build --tag hyp2000:ewdevgit -f DockerfileEwDevGit .; fi"
+      - run:
+          name: Run "composer install"
+          command: |
+            cd Docker
+            docker-compose exec -T workspace composer install
       - run:
           name: Test
           command: |
