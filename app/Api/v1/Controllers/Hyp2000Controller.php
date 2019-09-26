@@ -379,6 +379,27 @@ class Hyp2000Controller extends Controller
 		$command =
 			array_merge(
 				[
+                    'hostname'
+				]
+			);
+
+        /* Run process */
+        \Log::debug(" Running command: ", $command);
+        $command_timeout = 120;
+        $command_process = new Process($command);
+        $command_process->setTimeout($command_timeout);
+        $command_process->run();
+        \Log::debug(" getOutput:".$command_process->getOutput());
+        \Log::debug(" getErrorOutput:".$command_process->getErrorOutput());
+        if (!$command_process->isSuccessful()) {
+            throw new ProcessFailedException($command_process);
+        }
+        \Log::debug(" Done.");
+        
+		/* Set command for run process */
+		$command =
+			array_merge(
+				[
                     'docker',
                     'run',
                     '--rm',
