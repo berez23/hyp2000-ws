@@ -10,7 +10,7 @@ jobs:
       # Specify the version you desire here
       ####- image: circleci/php:7.1-node-browsers
       image: ubuntu-1604:201903-01
-      docker_layer_caching: false
+      #docker_layer_caching: false
 
       # Specify service dependencies here if necessary
       # CircleCI maintains a library of pre-built images
@@ -23,9 +23,7 @@ jobs:
       #- image: circleci/buildpack-deps:stretch
 
     steps:
-      
       - checkout
-
       - run: 
           name: Install git
           command: |
@@ -35,7 +33,7 @@ jobs:
           name: Get Submodule
           command: |
             git submodule init
-            git submodule update
+            git submodule update --remote
       - run:
           name: Start Docker Containers
           command: |
@@ -64,3 +62,14 @@ jobs:
           command: |
             pwd
             phpunit -v
+workflows:
+  version: 2
+  build_and_deploy:
+    jobs:
+      - build
+      - deploy:
+          requires:
+            - build
+          filters:
+            branches:
+              only: master
