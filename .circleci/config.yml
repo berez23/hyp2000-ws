@@ -10,21 +10,55 @@ jobs:
       image: ubuntu-1604:201903-01
     steps:
       - checkout
-  build2:
-    machine:
-      image: ubuntu-1604:201903-01
-    steps:
       - run: 
           name: Get Submodule 
           command: |
             git submodule sync
             git submodule update --init
+      - run:
+          name: Start Docker Containers
+          command: |
+            cd Docker
+            cp -v env-example .env
+            COMPOSE_HTTP_TIMEOUT=200 docker-compose up -d nginx redis workspace docker-in-docker
+      - run:
+          name: Check Docker started
+          command: |
+            pwd
+            ls -l
+            docker ps -a 
+            cd Docker
+            ls -l
+            docker-compose ps
+      - run:
+          name: Build "hyp2000" Docker Image
+          command: |
+            pwd
+            ls -l
+            cd Docker
+            ls -l
+            docker-compose exec -T php-fpm sh -c "docker --version"
+            docker-compose exec -T php-fpm sh -c "if docker image ls | grep -q hyp2000 ; then echo \" nothing to do\"; else cd hyp2000 && docker build --tag hyp2000:ewdevgit -f DockerfileEwDevGit .; fi"
+      - run:
+          name: Set Laravel package
+          command: |
+            cd Docker
+            docker-compose exec -T workspace ls -l
+            docker-compose exec -T workspace bash -c "php artisan key:generate"
+            docker-compose exec -T workspace php artisan key:generate
+            docker-compose exec -T workspace composer install
+      - run:
+          name: Test
+          command: |
+            cd Docker
+            docker-compose exec -T workspace sh -c "pwd && ls -l"
+            docker-compose exec -T workspace sh -c "vendor/bin/phpunit -v"
 workflows:
   version: 2
-  build_and_buil2:
+  build_and_test:
     jobs:
       - build
-      - build2:
+      - deploy:
           requires:
             - build
           filters:
