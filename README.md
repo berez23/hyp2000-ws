@@ -8,22 +8,25 @@ $ cd hyp2000-ws
 $ git submodule update --init --recursive
 ```
 
-## Set `./Docker/.env` file
+## Configure
 ```
 $ cp ./Docker/.env.example ./Docker/.env
 ```
-Set **HTTP_PORT** in the `./Docker/.env` file.
-
-Set `./.env` file with same port set in `./Docker/.env` file
+Set:
+- **HTTP_PORT** in `./Docker/.env` file.
+- `./.env` file with same port set in `./Docker/.env` file
 
 ## Start hyp2000-ws
+First, build docker images:
+
 ```
 $ cd Docker
 $ COMPOSE_HTTP_TIMEOUT=200 docker-compose up -d nginx redis workspace docker-in-docker
 ```
 
-Build **hyp2000** docker image into *php-fpm* container:
+then, build **hyp2000** docker image into *php-fpm* container:
 ```
 $ cd Docker
 $ docker-compose exec -T php-fpm sh -c "if docker image ls | grep -q hyp2000 ; then echo \" nothing to do\"; else cd hyp2000 && docker build --tag hyp2000:ewdevgit -f DockerfileEwDevGit .; fi"
 ```
+**ATTENTION**: Remember to re-build **hyp2000** docker image into *php-fpm* container every time the docker container starts.
