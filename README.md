@@ -14,7 +14,7 @@ $ cp ./Docker/.env.example ./Docker/.env
 ```
 Set:
 - **HTTP_PORT** in `./Docker/.env` file.
-- `./.env` file with same port set in `./Docker/.env` file
+- `./.env` file with same ports set in `./Docker/.env` file
 
 ## Start hyp2000-ws
 First, build docker images:
