@@ -23,15 +23,15 @@ jobs:
       #
       # - image: redis:2.8.19
       #- image: circleci/buildpack-deps:stretch
-
+    dependencies:
+      pre:
+        - docker info
+      override:
+        - git submodule update --init
+        - ls
+        - pwd
     steps:
       - checkout
-      - run: 
-          name: Install git
-          command: |
-            #sudo apt-get update 
-            #sudo apt-get install -yqq git
-            git status
       - run: 
           name: Get Submodule
           command: |
