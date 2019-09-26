@@ -32,10 +32,6 @@ jobs:
         - pwd
     steps:
       - checkout
-      - run: 
-          name: Get Submodule
-          command: |
-            git submodule update --init --recursive
       - run:
           name: Start Docker Containers
           command: |
