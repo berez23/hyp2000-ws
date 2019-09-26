@@ -375,7 +375,7 @@ class Hyp2000Controller extends Controller
 		/* Copy stations file and create output dir */
 		Storage::disk('data')->makeDirectory($dir_working."/".$dir_output."");
 
-		/* Set command for run process */
+		/* !!!!!!!! START - ToDo better */
 		$command =
 			array_merge(
 				[
@@ -395,6 +395,7 @@ class Hyp2000Controller extends Controller
             throw new ProcessFailedException($command_process);
         }
         \Log::debug(" Done.");
+        /* !!!!!!!! END - ToDo better */
         
 		/* Set command for run process */
 		$command =
