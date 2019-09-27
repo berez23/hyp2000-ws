@@ -14,20 +14,15 @@ class Hyp2000StationsControllerTest extends TestCase
 {
     use UtilsTrait;
     
-    protected $uri                          = '/api/v1/hyp2000stations?sta=ACER&cha=HHZ&net=IV&cache=false';
-    protected $hyp2000Input;
-    protected $hyp2000OutputJsonExpected;
+    protected $baseUri          = '/api/v1/hyp2000stations';
+    protected $params           = 'sta=ACER&cha=HHZ&net=IV&cache=false';
+    protected $uri;
     
     public function setUp(): void {
         parent::setUp();
 
-        // Get input
-        $Hyp2000Input_class = new Hyp2000Input();
-        $this->hyp2000Input = json_decode($Hyp2000Input_class->data, true);
-
-        // Get output expected
-        $Hyp2000OutputJson_class = new Hyp2000OutputJson();
-        $this->hyp2000OutputJsonExpected = json_decode($Hyp2000OutputJson_class->data, true);
+        /* Set '$uri' */
+        $this->uri = $this->baseUri.'?'. $this->params;
     }
     
     public function test_output() 
