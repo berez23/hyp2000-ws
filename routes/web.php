@@ -11,6 +11,10 @@
 |
 */
 
+/*
 Route::get('/', function () {
     return view('welcome');
 });
+*/
+
+Route::redirect('/', '/swagger-ui/dist/?url=https://ingv.github.io/openapi/api/hyp2000/0.0.1/hyp2000.yaml');
