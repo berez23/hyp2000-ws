@@ -2,7 +2,8 @@
 HYP2000-WS Release History
 #########################
 
-* Release 2.0.1  (2019/10/08)
+* Release 2.0.2  (2019/10/08)
     - Start project 
     - Hotfix 2.0.1: Update hyp2000 sit submodule path
+    - Hotfix 2.0.2: Bugfix - README file
     
