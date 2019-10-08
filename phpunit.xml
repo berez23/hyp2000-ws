@@ -9,6 +9,7 @@
          processIsolation="false"
          stopOnFailure="false">
     <testsuites>
+        <!--
         <testsuite name="Unit">
             <directory suffix="Test.php">./tests/Unit</directory>
         </testsuite>
@@ -16,7 +17,7 @@
         <testsuite name="Feature">
             <directory suffix="Test.php">./tests/Feature</directory>
         </testsuite>
-
+        -->
         <testsuite name="Hyp2000-ws">
             <directory suffix="Test.php">./app/Api/v1/Tests</directory>
         </testsuite>
