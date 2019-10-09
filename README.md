@@ -69,6 +69,12 @@ When all containers are started, connect to:
 
 If all works, you should see a web page with OpenAPI3 specification to interact with WS.
 
+## Test
+```
+$ cd Docker
+$ docker-compose exec -T --user=laradock workspace bash -c "vendor/bin/phpunit -v"
+```
+
 ## Thanks to
 This project uses the [Laradock](https://github.com/laradock/laradock) idea to start docker containers
 
