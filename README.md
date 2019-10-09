@@ -78,7 +78,7 @@ When all containers are started, go to:
 If all works, you should see a web page with OpenAPI3 specification.
 
 ## Thanks to
-This project uses the [Laradock](ihttps://github.com/laradock/laradock) idea to start docker containers
+This project uses the [Laradock](https://github.com/laradock/laradock) idea to start docker containers
 
 ## Contribute
 Please, feel free to contribute.
