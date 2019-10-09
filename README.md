@@ -54,14 +54,6 @@ $ cd ..
 
 ## Install hyp2000 
 build **hyp2000** docker image into *php-fpm* container:
-### !!! On Linux machine with no 'root' user !!!
-```
-$ cd Docker
-$ docker-compose exec -T --user=laradock php-fpm sh -c "if docker image ls | grep -q hyp2000 ; then echo \" nothing to do\"; else cd hyp2000 && docker build --tag hyp2000:ewdevgit -f DockerfileEwDevGit .; fi"
-$ cd ..
-```
-
-### !!! Others !!!
 ```
 $ cd Docker
 $ docker-compose exec -T php-fpm sh -c "if docker image ls | grep -q hyp2000 ; then echo \" nothing to do\"; else cd hyp2000 && docker build --tag hyp2000:ewdevgit -f DockerfileEwDevGit .; fi"
