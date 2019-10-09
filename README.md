@@ -72,10 +72,10 @@ $ cd ..
 The **hyp2000** docker image is built in the *php-fpm* container; if you destroy or rebuild *php-fpm* container, remember to rebuild install hyp2000 image.
 
 ## How to use it
-When all containers are started, go to: 
+When all containers are started, connect to: 
 - http://<your_host>:<your_port>/
 
-If all works, you should see a web page with OpenAPI3 specification.
+If all works, you should see a web page with OpenAPI3 specification to interact with WS.
 
 ## Thanks to
 This project uses the [Laradock](https://github.com/laradock/laradock) idea to start docker containers
