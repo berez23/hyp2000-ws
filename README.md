@@ -68,5 +68,23 @@ $ docker-compose exec -T php-fpm sh -c "if docker image ls | grep -q hyp2000 ; t
 $ cd ..
 ```
 
-### Keep no mind!
-The **hyp2000** docker image is built in the *php-fpm* container; if you destroy or rebuild *php-fpm* containre, remember to install hyp2000.
+### Keep on mind!
+The **hyp2000** docker image is built in the *php-fpm* container; if you destroy or rebuild *php-fpm* container, remember to rebuild install hyp2000 image.
+
+## How to use it
+When all containers are started, go to: 
+- http://<your_host>:<your_port>/
+
+If all works, you should see a web page with OpenAPI3 specification.
+
+## Thanks to
+This project uses the [Laradock](ihttps://github.com/laradock/laradock) idea to start docker containers
+
+## Contribute
+Please, feel free to contribute.
+
+## Author
+(c) 2019 Valentino Lauciani valentino.lauciani[at]ingv.it
+(c) 2019 Matteo Quintiliani matteo.quintiliani[at]ingv.it
+
+Istituto Nazionale di Geofisica e Vulcanologia, Italia
