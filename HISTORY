@@ -2,9 +2,10 @@
 HYP2000-WS Release History
 #########################
 
-* Release 2.0.3  (2019/10/08)
+* Release 2.0.4  (2019/10/09)
     - Start project 
     - Hotfix 2.0.1: Update hyp2000 sit submodule path
     - Hotfix 2.0.2: Bugfix - README file
     - Hotfix 2.0.3: Add 'laravel.conf' nginx conf file
+    - Hotfix 2.0.4: Update README file
     

@@ -21,6 +21,11 @@ $ cp ./.env.example ./.env
 
 Set `NGINX_HOST_HTTP_PORT` in `./Docker/.env` file.
 
+### !!! On Linux machine and no 'root' user !!!
+To run container as *linux-user* (intead of `root`), set `WORKSPACE_PUID` and `WORKSPACE_PGID` in `./Docker/.env` file with:
+- `WORKSPACE_PUID` should be equal to the output of `id -u` command
+- `WORKSPACE_PGID` should be equal to the output of `id -g` command
+
 ## Start hyp2000-ws
 First, build docker images:
 
@@ -31,6 +36,15 @@ $ cd ..
 ```
 
 ## Configure Laravel
+### !!! On Linux machine and no 'root' user !!!
+```
+$ cd Docker
+$ docker-compose exec -T --user=laradock workspace composer install
+$ docker-compose exec -T --user=laradock workspace php artisan key:generate
+$ cd ..
+```
+
+### !!! Others !!!
 ```
 $ cd Docker
 $ docker-compose exec -T workspace composer install
@@ -40,9 +54,19 @@ $ cd ..
 
 ## Install hyp2000 
 build **hyp2000** docker image into *php-fpm* container:
+### !!! On Linux machine with no 'root' user !!!
+```
+$ cd Docker
+$ docker-compose exec -T --user=laradock php-fpm sh -c "if docker image ls | grep -q hyp2000 ; then echo \" nothing to do\"; else cd hyp2000 && docker build --tag hyp2000:ewdevgit -f DockerfileEwDevGit .; fi"
+$ cd ..
+```
+
+### !!! Others !!!
 ```
 $ cd Docker
 $ docker-compose exec -T php-fpm sh -c "if docker image ls | grep -q hyp2000 ; then echo \" nothing to do\"; else cd hyp2000 && docker build --tag hyp2000:ewdevgit -f DockerfileEwDevGit .; fi"
 $ cd ..
 ```
-**ATTENTION**: Remember to re-build **hyp2000** docker image into *php-fpm* container every time the docker container starts.
+
+### Keep no mind!
+The **hyp2000** docker image is built in the *php-fpm* container; if you destroy or rebuild *php-fpm* containre, remember to install hyp2000.
