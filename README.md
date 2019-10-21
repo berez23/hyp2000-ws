@@ -54,19 +54,35 @@ $ cd ..
 
 ## Install hyp2000 
 build **hyp2000** docker image into *php-fpm* container:
-### !!! On Linux machine with no 'root' user !!!
-```
-$ cd Docker
-$ docker-compose exec -T --user=laradock php-fpm sh -c "if docker image ls | grep -q hyp2000 ; then echo \" nothing to do\"; else cd hyp2000 && docker build --tag hyp2000:ewdevgit -f DockerfileEwDevGit .; fi"
-$ cd ..
-```
-
-### !!! Others !!!
 ```
 $ cd Docker
 $ docker-compose exec -T php-fpm sh -c "if docker image ls | grep -q hyp2000 ; then echo \" nothing to do\"; else cd hyp2000 && docker build --tag hyp2000:ewdevgit -f DockerfileEwDevGit .; fi"
 $ cd ..
 ```
 
-### Keep no mind!
-The **hyp2000** docker image is built in the *php-fpm* container; if you destroy or rebuild *php-fpm* containre, remember to install hyp2000.
+### Keep on mind!
+The **hyp2000** docker image is built in the *php-fpm* container; if you destroy or rebuild *php-fpm* container, remember to rebuild install hyp2000 image.
+
+## How to use it
+When all containers are started, connect to: 
+- http://<your_host>:<your_port>/
+
+If all works, you should see a web page with OpenAPI3 specification to interact with WS.
+
+## Test
+```
+$ cd Docker
+$ docker-compose exec -T --user=laradock workspace bash -c "vendor/bin/phpunit -v"
+```
+
+## Thanks to
+This project uses the [Laradock](https://github.com/laradock/laradock) idea to start docker containers
+
+## Contribute
+Please, feel free to contribute.
+
+## Author
+(c) 2019 Valentino Lauciani valentino.lauciani[at]ingv.it
+(c) 2019 Matteo Quintiliani matteo.quintiliani[at]ingv.it
+
+Istituto Nazionale di Geofisica e Vulcanologia, Italia

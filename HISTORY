@@ -2,6 +2,11 @@
 HYP2000-WS Release History
 #########################
 
+* Release 2.1.0  (2019/10/21)
+    - Add publiccode.yaml
+    - Update README
+    - Add LICENSE and AUTHORS.md files 
+
 * Release 2.0.4  (2019/10/09)
     - Start project 
     - Hotfix 2.0.1: Update hyp2000 sit submodule path
