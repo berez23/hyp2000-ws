@@ -82,7 +82,7 @@ This project uses the [Laradock](https://github.com/laradock/laradock) idea to s
 Please, feel free to contribute.
 
 ## Author
-(c) 2019 Valentino Lauciani valentino.lauciani[at]ingv.it
+(c) 2019 Valentino Lauciani valentino.lauciani[at]ingv.it \
 (c) 2019 Matteo Quintiliani matteo.quintiliani[at]ingv.it
 
 Istituto Nazionale di Geofisica e Vulcanologia, Italia
