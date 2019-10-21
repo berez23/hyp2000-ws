@@ -2,7 +2,7 @@
 HYP2000-WS Release History
 #########################
 
-* Release 2.1.0-dev  (2019/10/21)
+* Release 2.1.0  (2019/10/21)
     - Add publiccode.yaml
     - Update README
     - Add LICENSE and AUTHORS.md files 
