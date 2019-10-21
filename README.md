@@ -68,5 +68,5 @@ $ docker-compose exec -T php-fpm sh -c "if docker image ls | grep -q hyp2000 ; t
 $ cd ..
 ```
 
-### Keep no mind!
+### Keep on mind!
 The **hyp2000** docker image is built in the *php-fpm* container; if you destroy or rebuild *php-fpm* containre, remember to install hyp2000.
