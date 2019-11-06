@@ -3,7 +3,7 @@
 [![Join the #general channel](https://img.shields.io/badge/Slack%20channel-%23general-blue.svg)](https://ingv-institute.slack.com/messages/CKS902Y5B)
 [![Get invited](https://slack.developers.italia.it/badge.svg)](https://ingv-institute.slack.com/)
 
-# quakeml-validator [![Versione](https://img.shields.io/github/release/INGV/hyp2000-ws.svg)](https://github.com/INGV/hyp2000-ws/releases) [![CircleCI](https://circleci.com/gh/INGV/hyp2000-ws.svg?style=svg)](https://circleci.com/gh/INGV/hyp2000-ws)
+# quakeml-validator [![Versione](https://img.shields.io/github/v/tag/INGV/hyp2000-ws.svg)](https://github.com/INGV/hyp2000-ws/releases) [![CircleCI](https://circleci.com/gh/INGV/hyp2000-ws.svg?style=svg)](https://circleci.com/gh/INGV/hyp2000-ws)
 
 # hyp2000-ws
 
