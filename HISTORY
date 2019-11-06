@@ -2,6 +2,10 @@
 HYP2000-WS Release History
 #########################
 
+* Release 2.3.0 (2019/11/06)
+    - Add ingv logo
+    - Remove the use of VERSION file; the version is reported into 'publiccode.yml' 
+
 * Release 2.2.0 (2019/11/06)
     - Update publiccode.yml 
 
