@@ -1,10 +1,7 @@
-
-
 |**Service**|**Master**|**Develop**|
 |---|---|---|
 |CircleCI|[![CircleCI](https://circleci.com/gh/INGV/hyp2000-ws/tree/master.svg?style=svg)](https://circleci.com/gh/INGV/hyp2000-ws/tree/master)|[![CircleCI](https://circleci.com/gh/INGV/hyp2000-ws/tree/develop.svg?style=svg)](https://circleci.com/gh/INGV/hyp2000-ws/tree/develop)|
 |Version|[![Version](https://img.shields.io/badge/dynamic/yaml?label=ver&query=softwareVersion&url=https://raw.githubusercontent.com/INGV/hyp2000-ws/master/publiccode.yml)](https://github.com/INGV/hyp2000-ws/blob/master/HISTORY)|[![Version](https://img.shields.io/badge/dynamic/yaml?label=ver&query=softwareVersion&url=https://raw.githubusercontent.com/INGV/hyp2000-ws/develop/publiccode.yml)](https://github.com/INGV/hyp2000-ws/blob/develop/HISTORY)|
-
 
 [![License](https://img.shields.io/github/license/INGV/hyp2000-ws.svg)](https://github.com/INGV/hyp2000-ws/blob/master/LICENSE)
 [![GitHub issues](https://img.shields.io/github/issues/INGV/hyp2000-ws.svg)](https://github.com/INGV/hyp2000-ws/issues)
