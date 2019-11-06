@@ -54,4 +54,5 @@ description:
       At INGV we build stand-alone Docker to deploy "hyp2000" (https://github.com/ingv/hyp2000) and on top of this docker was build a Web Service.
     localisedName: 'HYP2000-WS'
     features:
-      - Web Service buil on top pf hypoinverse that is software used to Locate earthquakes and determine magnitudes in a local or regional seismic network
+      - Web Service built on top of hypoinverse
+      - Software used to locate earthquakes and determine magnitudes in a local or regional seismic network
