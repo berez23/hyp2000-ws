@@ -49,9 +49,11 @@ description:
     longDescription: >
       Hypoinverse is software used to Locate earthquakes and determine magnitudes in a local or regional seismic network.
 
-      More info, here: https://www.usgs.gov/software/hypoinverse-earthquake-location
+      More info aboute Hypoinverse, here: https://www.usgs.gov/software/hypoinverse-earthquake-location
 
-      At INGV we build stand-alone Docker to deploy "hyp2000" (https://github.com/ingv/hyp2000) and on top of this docker was build a Web Service.
+      At INGV we build stand-alone Docker to deploy "hyp2000" (https://github.com/ingv/hyp2000) and on top of this was build a Web Service; It gets a JSON file with phases and amplitude and run a process.
+      
+      The output could be in a standard format like ARC and PRT or in JSON.
     localisedName: 'HYP2000-WS'
     features:
       - Web Service built on top of hypoinverse
