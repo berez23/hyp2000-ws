@@ -5,10 +5,11 @@ HYP2000-WS Release History
 * Release 2.5.0-dev (2019/11/27)
     - . . .
 
-* Release 2.4.0 (2019/11/27)
+* Release 2.4.2 (2019/11/27)
     - Minor update
     - Update publiccode.yml
     - Hotfix 2.4.1: Fix Slack channel name
+    - Hotfix 2.4.2: Fix publiccode version
 
 * Release 2.3.0 (2019/11/06)
     - Add ingv logo
