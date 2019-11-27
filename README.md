@@ -8,8 +8,6 @@
 [![Join the #hyp2000-ws channel](https://img.shields.io/badge/Slack%20channel-%23hyp2000--ws-blue.svg)](https://ingv-institute.slack.com/archives/CR3MQLYKG)
 [![Get invited](https://slack.developers.italia.it/badge.svg)](https://ingv-institute.slack.com/)
 
-# quakeml-validator  
-
 # hyp2000-ws
 
 ```
