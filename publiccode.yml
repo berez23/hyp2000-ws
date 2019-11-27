@@ -4,11 +4,11 @@
 
 publiccodeYmlVersion: '0.2'
 name: 'INGV - HYP2000-WS' 
-releaseDate: '2019-11-06'
+releaseDate: '2019-11-26'
 url: 'https://github.com/INGV/hyp2000-ws'
 logo: public/images/ingv_logo_text_two_lines.png 
 landingURL: 'https://github.com/INGV/hyp2000-ws'
-softwareVersion: 2.3.0
+softwareVersion: 2.4.0
 developmentStatus: stable
 softwareType: standalone/other
 platforms:
@@ -49,9 +49,12 @@ description:
     longDescription: >
       Hypoinverse is software used to Locate earthquakes and determine magnitudes in a local or regional seismic network.
 
-      More info, here: https://www.usgs.gov/software/hypoinverse-earthquake-location
+      More info aboute Hypoinverse, here: https://www.usgs.gov/software/hypoinverse-earthquake-location
 
-      At INGV we build stand-alone Docker to deploy "hyp2000" (https://github.com/ingv/hyp2000) and on top of this docker was build a Web Service.
+      At INGV we build stand-alone Docker to deploy "hyp2000" (https://github.com/ingv/hyp2000) and on top of that was buit a Web Service; It gets in input a JSON file with phases and amplitudes. 
+      For each station name, It searches the metadata (like Lat and Long) on the FDSN-StationXML Web Services around the world.
+      
+      The output could be in a standard format like ARC and PRT or in JSON.
     localisedName: 'HYP2000-WS'
     features:
       - Web Service built on top of hypoinverse
