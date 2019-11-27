@@ -5,7 +5,7 @@
 
 [![License](https://img.shields.io/github/license/INGV/hyp2000-ws.svg)](https://github.com/INGV/hyp2000-ws/blob/master/LICENSE)
 [![GitHub issues](https://img.shields.io/github/issues/INGV/hyp2000-ws.svg)](https://github.com/INGV/hyp2000-ws/issues)
-[![Join the #general channel](https://img.shields.io/badge/Slack%20channel-%23general-blue.svg)](https://ingv-institute.slack.com/messages/CKS902Y5B)
+[![Join the #hyp2000-ws channel](https://img.shields.io/badge/Slack%20channel-%23general-blue.svg)](https://ingv-institute.slack.com/archives/CR3MQLYKG)
 [![Get invited](https://slack.developers.italia.it/badge.svg)](https://ingv-institute.slack.com/)
 
 # quakeml-validator  
