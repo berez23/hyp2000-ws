@@ -49,6 +49,8 @@ $ cd ..
 $ cd Docker
 $ docker-compose exec -T --user=laradock workspace composer install
 $ docker-compose exec -T --user=laradock workspace php artisan key:generate
+$ docker-compose exec -T --user=laradock workspace chown -R 1000:1000 ./storage
+$ docker-compose exec -T --user=laradock workspace chown -R 1000:1000 ./bootstrap/cache/
 $ cd ..
 ```
 
@@ -57,6 +59,8 @@ $ cd ..
 $ cd Docker
 $ docker-compose exec -T workspace composer install
 $ docker-compose exec -T workspace php artisan key:generate
+$ docker-compose exec -T workspace chown -R 1000:1000 ./storage
+$ docker-compose exec -T workspace chown -R 1000:1000 ./bootstrap/cache/
 $ cd ..
 ```
 
