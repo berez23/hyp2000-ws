@@ -2,9 +2,10 @@
 HYP2000-WS Release History
 #########################
 
-* Release 2.5.0-dev (2019/12/04)
+* Release 2.5.1 (2019/12/05)
     - Set TAG for dind docker image
     - Update README 
+    - Hotfix 2.5.1: Fix HISTORY file 
 
 * Release 2.4.5 (2019/12/04)
     - Minor update
