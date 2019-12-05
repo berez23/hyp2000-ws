@@ -64,7 +64,7 @@ $ docker-compose exec -T workspace chown -R 1000:1000 ./bootstrap/cache/
 $ cd ..
 ```
 
-## Install hyp2000 
+## Build hyp2000 image
 build **hyp2000** docker image into *php-fpm* container:
 ```
 $ cd Docker
@@ -73,11 +73,14 @@ $ cd ..
 ```
 
 ### Keep on mind!
-The **hyp2000** docker image is built in the *php-fpm* container; if you destroy or rebuild *php-fpm* container, remember to rebuild install hyp2000 image.
+The **hyp2000** docker image is built in the *php-fpm* container; if you destroy or rebuild *php-fpm* container, remember to re-build hyp2000 image.
 
 ## How to use it
 When all containers are started, connect to: 
 - http://<your_host>:<your_port>/
+
+default is:
+- http://localhost:8086/
 
 If all works, you should see a web page with OpenAPI3 specification to interact with WS.
 
